@@ -1,8 +1,8 @@
 window.onload=function(){
-	document.formulario.onsubmit=valida;
+	document.formulario.onsubmit=comprobar;
 }
 
-function valida{
+function comprobar{
 
 	let enviar=true;
 	let adicionales="áéíóúüñ";
@@ -227,6 +227,7 @@ en medio va a poder contener letras, dígitos, y los caracteres “ª”, “º�
 
 
 
+
 /* Los números que se introducen van a ser siempre positivos.*/
 	//Numero de trabajadores de la empresa 
 	let ntrab=document.formulario.numtrab.value.toLowerCase().trim();
@@ -283,31 +284,31 @@ en medio va a poder contener letras, dígitos, y los caracteres “ª”, “º�
 /*La Fecha puede tener uno ó dos dígitos para el mes y día y para el año va a
 poder tener dos o cuatro dígitos.*/
 
-	let vfcha=document.formulario.fchacons.value.toLowerCase().trim();
+	let vfecha=document.formulario.fechacons.value.toLowerCase().trim();
 	let fecha=true;
 	let dia;
 	let mes;
 	let anio;
-	let pos=vfcha.indexOf("/");
+	let pos=vfecha.indexOf("/");
 	let posmes;
 	
 	if (pos == -1) {
-		pos=vfcha.indexOf("-");
+		pos=vfecha.indexOf("-");
 	}
 	
 	if (pos== -1 || pos > 2) {
 		fecha=false;
 	} else {
-		dia=vfcha.substr(0,pos);
-		posmes=vfcha.indexOf("/", pos+1);
+		dia=vfecha.substr(0,pos);
+		posmes=vfecha.indexOf("/", pos+1);
 		if (posmes == -1) {
-			posmes=vfcha.indexOf("-", pos + 1);
+			posmes=vfecha.indexOf("-", pos + 1);
 		}
 		if (posmes == -1 || posmes > pos+3) {
 			fecha=false;
 		} else {
-			mes=vfcha.substr(pos+1,posmes - pos - 1);
-			anio=vfcha.substring(posmes+1,vfcha.lenght);
+			mes=vfecha.substr(pos+1,posmes - pos - 1);
+			anio=vfecha.substring(posmes+1,vfecha.lenght);
 			if ( anio.length != 2 && anio.length!=4) {
 				fecha=false;
 			} else  {
@@ -391,21 +392,29 @@ menos uno seleccionado.*/
 
 	//Número de Trabajadores por Empresa y Tipo de Empresa
 	
-	let numtip=0;
-	for (let i=0;i < tipempre.length;i++){
-		if (tipempre[i].checked){
-			numtip=1;
+	let numtrab=0;
+	let numtipo=0;
+	let numpers=0;
+	for (let i=0; i < document.segundo.elements.length ; i++ ) {
+		if (document.segundo.elements[i].type=="radio") {
+			if (document.segundo.elements[i].checked) {
+				if (document.segundo.elements[i].name=="numtraemp")
+					numtrab=1
+				else if (document.segundo.elements[i].name=="persona")
+					numpers=1
+				else 
+					numtipo=1;
+			}
 		}
 	}
-	if (numtip ==0) {
+	if (numtrab ==0) {
 		enviar=false;
-		mensaje+="Debe seleccionar al menos un Tipo de Empresa \n";
+		mensaje+="Debe seleccionar al menos un Número de Trabajadores por Empresa \n";
 	}	
-	if (mensaje.length>0){
-		alert(mensaje);
+	if (numpers ==0) {
+		enviar=false;
+		mensaje+="Debe seleccionar al menos un Tipo de persona \n";
 	}
-	return enviar;
-
 
 
 

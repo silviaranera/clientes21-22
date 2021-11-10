@@ -257,24 +257,27 @@ function comprobarIBAN(iban) {
 	let posDos=letras.indexOf(iban.charAt(1));//indexOf(charAt) devuelve el indice 
 	let primeros=valorLetra[posUno]+valorLetra[posDos]+iban.substr(2,2);
 	let resto=iban.substr(4); //devuelve los caracteres de la cadena 
-	let posicionLet=0;
+	let posicionLetras=0;
 	for (let indice=0;indice< resto.length; indice++){
 		if (letras.includes(resto.charAt(indice)))
-			cambioResto+=valorLetra[posicionLet];
+			cambioResto+=valorLetra[posicionLetras];
 		else 
 			cambioResto+=resto.charAt(indice)
 	}	
-	//El numero optenido se dividirá entre 97, quedandonos el resto
 	let dato=cambioResto+primeros;
 	let veces=Math.ceil(cambioResto / 9); // Math.ceil() devuelve el entero mayor o igual más próximo a un número dado.
+	//El numero obtenido se dividirá entre 97, quedandonos el resto
 	let resultado;
 	let restillo=0;
 	for (let indice=0; indice < veces; indice++){
 		let numeros=cambioResto.substr(indice*9,9);
-		let paso=parseInt(restiullo.toString()+numeros,10);
+		let paso=parseInt(restillo.toString()+numeros,10);
 		restillo=restillo % 97;
 	}
-	return (restillo==1); //resto=1=correcto 
+	return (restillo==1); //1=correcto 
 }
 	
+	/*for(let i=o; i<letras.length; i++){
+		iban=iban.replaceAll(letras[i],numeros[i])
+	}*/
 	
