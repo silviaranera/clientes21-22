@@ -1,0 +1,150 @@
+<!doctype html>
+<html>
+	<head>
+		<meta name="author" content="Silvia Ranera Martin" />	
+		<meta charset="utf-8" />
+		<title>Práctica 5-04 Expresiones regulares</title>
+		<link href="css/5-03.css" rel="stylesheet" type="text/css" />
+		<style type="text/css">
+			
+		</style>
+		<script src="js/validaciones.js" type="text/javascript"></script>
+		<script src="js/5-04.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			
+		</script>
+	</head>
+	<body>
+		<header>
+			<h1>Formulario de recogida de datos de las empresas</h1>
+		</header>
+		<nav>
+		
+		</nav>
+		<main>
+			<section>
+				<article>
+					<div>
+						<form name="formulario" onsubmit="comprobar()">
+							<div>
+								<label for="nombre">Razón Social/Apellidos y Nombre</label>
+								<input type="text" name="nombre" /> <br />
+								
+								<label for="codemp">Código de la Empresa</label>
+								<input type="text" name="codemp" /> <br />
+								
+								<label for="nif">CIF/NIF de la Empresa</label>
+								<input type="text" name="nif" /> <br />
+								
+								<fieldset id="tipo">
+									<legend>Tipo de persona</legend>
+									<input type="radio" name="persona" value="juridica"> Jurídica 
+									<input type="radio" name="persona" value="fisica"> Física 
+								</fieldset>
+								
+								<fieldset class="domicilio">
+									<legend>Domicilio Social/Particular</legend>
+									<label for="dompar">Dirección</label>
+									<input type="text" name="dompar"> 
+									<label for="telefpar">Teléfono</label>
+									<input type="text" name="telefpar" > <br />
+									<label for="locpar">Localidad</label>
+									<input type="text" name="localpar"> 
+									<label for="codpospar">Código Postal</label>
+									<input type="text" name="codpospar" > <br />
+									<label for="provpar">Provincia</label>
+									<input type="text" name="provpar" readonly> 			
+								</fieldset>
+								
+								<fieldset class="domicilio">
+									<legend>Datos Bancarios</legend>
+									<label for="banco">Código del banco</label>
+									<input type="text" name="banco" />  <br />
+									<label for="oficina" >Código oficina</label>
+									<input type="text" name="oficina" /> <br />
+									<label for="cc">Código control</label>
+									<input type="text" name="cc" />  <br />
+									<label for="cuenta" >Número de cuenta</label>
+									<input type="text" name="cuenta" /> <br />
+									<label for="iban">IBAN</label>
+									<input type="text" name="iban" /> 
+								</fieldset>
+								<br />
+								
+								<label for="fechcons">Fecha de Constitución de la Empresa</label>
+								<input type="text" name="fechacons"> <br />
+								
+								<label for="numtrab">Número de Trabajadores de la Empresa</label>
+								<input type="text" name="numtrab"> <br />
+								
+								<label for="numfab">Número de Fabricas de la Empresa</label>
+								<input type="text" name="numfab" > <br />
+								 
+								Comunidades en las que hay fabricas 
+								<select name="comunidad" multiple size="5">
+									<option value="asturias">Asturias </option>
+									<option value="andalucia">Andalucia </option>
+									<option value="galicia">Galicia </option>
+									<option value="cantabria">Cantabria </option>
+									<option value="vasco">Pais Vasco </option>
+									<option value="navarra">Navarra </option>
+									<option value="aragon">Aragón </option>
+									<option value="cataluña">Cataluña </option>
+									<option value="castillaLeon">Castilla y León </option>
+									<option value="rioja">La Rioja </option>
+									<option value="madrid">Comunidad de Madrid </option>
+									<option value="valenciana">Comunidad Valenciana </option>
+									<option value="baleares">Islas Baleares</option>
+									<option value="canarias">Islas Canarias </option>
+									<option value="extremadura">Extremadura </option>
+									<option value="urcia">Murcia</option>
+									<option value="castillamancha">Castilla-La Mancha </option>
+									<option value="ceuta">Ceuta </option>
+									<option value="melilla">Melilla </option>
+								</select>
+								
+								<fieldset>
+									<legend>Sector/es Económicos</legend>
+									<input type="checkbox" name="ali"> Alimentación
+									<input type="checkbox" name="inf"> Informática
+									<input type="checkbox" name="com"> Comercio
+									<input type="checkbox" name="con"> Construcción
+									<input type="checkbox" name="hos"> Hostelería					
+									<input type="checkbox" name="ali"> Alimentación
+									<input type="checkbox" name="alimen"> Alimentación
+									<input type="checkbox" name="auto"> Automoción
+									<input type="checkbox" name="cal"> Calzado
+									<input type="checkbox" name="tur"> Turismo
+									<input type="checkbox" name="agri"> Agricultura
+									<input type="checkbox" name="gan"> Ganaderia
+									<input type="checkbox" name="otros"> Otros
+								</fieldset>
+								
+								<fieldset id="tipoemp">
+									<legend>Tipo de Empresa</legend>
+									<input type="radio" name="tipempre" value="sa"> S.A.
+									<input type="radio" name="tipempre" value="sl"> S.L.
+									<input type="radio" name="tipempre" value="sal"> S.A.L.
+									<input type="radio" name="tipempre" value="coo"> Cooperativa
+									<input type="radio" name="tipempre" value="auto"> Autónomo
+									<input type="radio" name="tipempre" value="otra"> Otra
+								</fieldset>
+								
+							</div> <br />
+							
+							<input type="submit" value="Validar" /> 
+							<input type="reset" value="Limpiar" />
+						
+						</form>
+					</div>
+				</article>
+			</section>
+		</main>
+		<footer>
+		
+		</footer>
+		<aside>
+		</aside>
+	</body>
+</html>
+	   
